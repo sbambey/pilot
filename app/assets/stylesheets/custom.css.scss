@@ -1,5 +1,26 @@
 @import "bootstrap";
-
-.col-md-1, .col-md-5, .col-md-7 {
+body {
+	padding-top: 30px;
+}
+.col-md-4 {
     background-color: #ddd;
 }
+
+.links-bar {
+	margin-top: 12px;	
+}
+
+.logo {
+	height: 80px;
+}
+
+.top-nav a {
+	margin-left:50px;
+}
+/*.navbar-btn {
+	margin-right: 70px;
+	&:first-child {
+		margin-left:60px; has to be 10px less than margin-right above
+	}
+}
+//navbar link padding*/
