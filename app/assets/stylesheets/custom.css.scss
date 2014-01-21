@@ -1,9 +1,7 @@
 @import "bootstrap";
 body {
-	padding-top: 30px;
-}
-.col-md-4 {
-    background-color: #ddd;
+	padding-top: 7px;
+	background: #fafafa;
 }
 
 .links-bar {
@@ -15,12 +13,17 @@ body {
 }
 
 .top-nav a {
-	margin-left:30px;
+	margin-left:50px;
 }
-/*.navbar-btn {
-	margin-right: 70px;
-	&:first-child {
-		margin-left:60px; has to be 10px less than margin-right above
+
+.landing {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	margin-top: 20px;
+	h2 {
+		margin-bottom: 10px;
+	}
+	p {
+		margin-bottom: 20px;
 	}
 }
-//navbar link padding*/
