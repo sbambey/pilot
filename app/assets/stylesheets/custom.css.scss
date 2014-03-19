@@ -4,22 +4,39 @@ body {
 	background: image-url("brushed.png");
 }
 
+.row_eq {
+    display: table;
+}
+
+.eq {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+
 .links-bar {
 	margin-top: 12px;	
 }
 
 .top-nav a {
-	margin-left:50px;
+	margin-left: 50px;
+}
+
+.image-placeholder {
+	height: inherit;
+	background-color: red;
 }
 
 .landing {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	margin-top: 20px;
+	padding: 20px 50px 20px 50px;
+	margin-left: -30px;
+	background: #f5f5f5;
 	h2 {
 		margin-bottom: 10px;
 	}
 	p {
 		margin-bottom: 20px;
+		font-size: 20px;
+		font-weight: 200;
 	}
 }
