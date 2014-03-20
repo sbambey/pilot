@@ -1,36 +1,38 @@
 @import "bootstrap";
 body {
 	padding-top: 7px;
-	background: image-url("brushed.png");
+	background: image-url("grey_wash_wall.png");
 }
 
-.row_eq {
-    display: table;
-}
-
-.eq {
-    float: none;
-    display: table-cell;
-    vertical-align: top;
-}
-
+/** Navbar **/
 .links-bar {
-	margin-top: 12px;	
+	margin-top: 12px;
+	border: 1px solid #000000;	
 }
 
 .top-nav a {
 	margin-left: 50px;
 }
 
-.image-placeholder {
-	height: inherit;
-	background-color: red;
+/** Landing content **/
+.landing-banner {
+	border-left: 1px solid #000000;
+	border-top: 1px solid #000000;
+	border-right: 1px solid #000000;
+}
+
+.landing-border {
+	border-top: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
 }
 
 .landing {
 	padding: 20px 50px 20px 50px;
-	margin-left: -30px;
 	background: #f5f5f5;
+	border-top: 1px solid #000000;
+	border-left: 1px solid #000000;
+	border-right: 1px solid #000000;
 	h2 {
 		margin-bottom: 10px;
 	}
@@ -39,4 +41,8 @@ body {
 		font-size: 20px;
 		font-weight: 200;
 	}
+}
+
+.test {
+	border-radius: 5px;
 }
