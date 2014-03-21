@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-4 logo"><h3>LOGO GOES HERE</h3></div>
+	<div class="col-md-4"><h2 class="logo">LOGO GOES HERE</h2></div>
 	<div class="col-md-8">
 		<nav class="navbar navbar-default links-bar" role="navigation">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -14,10 +14,10 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav top-nav">
-					<li><a href="#">Home</a></li>
+					<li><%= link_to "Home", root_path %></li>
 					<li><a href="#">General Information</a></li>
-					<li><a href="#">Airlines & Jobs</a></li>
 					<li><a href="#">Flight Schools</a></li>
+					<li><%= link_to "Register", new_user_path %></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</nav>
