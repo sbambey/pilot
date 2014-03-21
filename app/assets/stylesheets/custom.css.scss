@@ -71,12 +71,19 @@ body {
 }
 
 /** Forms **/
+
+.error-msg {
+	margin-top:20px;
+}
+
 .form-box {
 	@include content-box;
 	border-bottom:1px solid black;
 	border-radius: 5px;
 	padding-bottom:20px;
 }
+
+
 
 /* miscellaneous */
 

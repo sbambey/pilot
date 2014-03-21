@@ -1,1 +1,12 @@
-<%= @user.name %>, <%= @user.email %>
+<div class="row">
+  <div class="col-md-12">
+  	<div class="form-box">
+  		<% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
+      <h1>Personal site of <%= @user.name %></h1>
+
+    </div>
+  </div>
+</div>
