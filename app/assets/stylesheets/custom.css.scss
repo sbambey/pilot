@@ -10,25 +10,14 @@ $grayMediumLight: #eaeaea;
   box-sizing: border-box;
 }
 
-@mixin content-box {
-	border-width: 1px;
-	border-left: 1px solid black;
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-	background: white;
-}
-
-@mixin banner-box {
-	border-width: 1px;
-	border-left: 1px solid black;
-	border-top: 1px solid black;
-	border-right: 1px solid black;
-}
-
 /** Universal **/
 body {
 	padding-top: 7px;
 	background: image-url("grey_wash_wall.png");
+}
+
+.top-m-20 {
+	margin-top: 20px;
 }
 
 /** Logo **/
@@ -47,19 +36,14 @@ body {
 	margin-left: 50px;
 }
 
-/** Home content **/
-.home-banner {
-	@include banner-box;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
+.content {
+	padding: 10px 65px 30px 65px;
 }
 
-.home-box {
-	@include content-box;
-	padding: 20px 50px 20px 50px;
-	border-bottom: 1px solid black;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+.standard-box {
+	background: white;
+	border:1px solid black;
+	border-radius:5px;
 	h2 {
 		margin-bottom: 10px;
 	}
@@ -72,18 +56,9 @@ body {
 
 /** Forms **/
 
-.error-msg {
-	margin-top:20px;
-}
-
 .form-box {
-	@include content-box;
-	border-bottom:1px solid black;
-	border-radius: 5px;
 	padding-bottom:20px;
 }
-
-
 
 /* miscellaneous */
 
