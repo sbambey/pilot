@@ -32,8 +32,16 @@ body {
 	border: 1px solid #000000;	
 }
 
+.dropdown-menu {
+	border-color: #000000;
+}
+
+.divider {
+	background-color: #000000;
+}
+
 .top-nav a {
-	margin-left: 50px;
+	/** something needs to happen here**/
 }
 
 .content {
