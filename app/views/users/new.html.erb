@@ -4,15 +4,15 @@
 		<h1>Sign up</h1>
 		<%= form_for(@user, :html => {:role => 'form'}) do |f| %>
 
-			<%= render 'shared/error_messages' %>
+			<%= render partial: "shared/error_messages", locals: {efor: @user} %>
 
-			<%= render partial: "form_input", locals: { f: f, errors: errors, type: :name } %>
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :name } %>
 
-			<%= render partial: "form_input", locals: { f: f, errors: errors, type: :email } %>
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :email } %>
 
-			<%= render partial: "form_input", locals: { f: f, errors: errors, type: :password } %>
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :password } %>
 
-			<%= render partial: "form_input", locals: { f: f, errors: errors, type: :password_confirmation } %>
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :password_confirmation } %>
 
 		  <%= f.submit "Create my account", :class => "btn btn-primary btn-lg" %>
 		<% end %>

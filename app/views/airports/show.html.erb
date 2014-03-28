@@ -1,0 +1,22 @@
+<div class="row">
+	<div class="col-md-12 content">
+		
+		<% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> top-m-20"><%= value %></div>
+    <% end %>
+
+		<h1>Name:</h1><p><%= @airport.name %></p>
+		<table class="table table-bordered">
+			<tr>
+				<td>City</td>
+				<td>State</td>
+				<td>Website</td>
+			</tr>
+			<tr>
+				<td><%= @airport.city %></td>
+				<td><%= @airport.state %></td>
+				<td><a href="<%= @airport.website %>"><%= @airport.website %></a></td>
+			</tr>
+		</table>
+	</div>
+</div>	

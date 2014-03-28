@@ -1,2 +1,20 @@
-<h1>Add airport</h1>
-<p>Find me in app/views/airports/new.html.erb</p>
+<% errors = @airport.errors %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3 content">
+		<h1>Add an airport</h1>
+		<%= form_for(@airport, :html => {:role => 'form'}) do |f| %>
+
+			<%= render partial: "shared/error_messages", locals: {efor: @airport} %>
+
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :name } %>
+
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :city } %>
+
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :state } %>
+
+			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :website } %>
+
+		  <%= f.submit "Add airport", :class => "btn btn-primary btn-lg" %>
+		<% end %>
+	</div>
+</div>
