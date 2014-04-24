@@ -1,4 +1,7 @@
 class AirportsController < ApplicationController
+
+  before_action :signed_in_user, :except => [:index, :show]
+
   def new
   	@airport = Airport.new
   end
@@ -22,4 +25,6 @@ class AirportsController < ApplicationController
   	def airport_params
   		params.require(:airport).permit(:name, :city, :state, :website)
   	end
+
+
 end

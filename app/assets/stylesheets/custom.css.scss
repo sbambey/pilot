@@ -16,9 +16,41 @@ body {
 	background: image-url("grey_wash_wall.png");
 }
 
+.top-m-3 {
+	margin-top:3px;
+}
 .top-m-20 {
 	margin-top: 20px;
 }
+.top-m-40 {
+	margin-top:40px;
+}
+.bottom-m-0 {
+	margin-bottom: 0px;
+}
+
+.font-15 {
+	font-size:15px !important;
+}
+.font-17 {
+	font-size:17px !important;
+}
+.font-20 {
+	font-size: 20px;
+	font-weight: lighter;
+}
+.lighter {
+	font-weight:lighter;
+}
+
+td {
+	font-size: 15px;
+}
+th {
+	font-size: 18px;
+	font-weight: lighter;
+}
+
 
 /** Logo **/
 .logo {
@@ -77,5 +109,3 @@ body {
   margin-top: 45px;
   @include box-sizing;
 }
-
-/* forms */

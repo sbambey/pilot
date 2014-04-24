@@ -12,4 +12,16 @@ FactoryGirl.define do
   	state	"Bar"
   	website	"http://www.foobar.com"
   end
+
+  factory :opportunity do
+    name                "Test Program"
+    company             "Airline Company"
+    logo                "some_logo.png"
+    program_type        "Cadet Program"
+    duration            "3 to 6 months"
+    post_graduation     "ATPL and job"
+    website             "http://idealopp.com"
+    rating              8.5
+    general_information "Some general information text"
+  end
 end

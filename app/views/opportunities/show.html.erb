@@ -1,0 +1,76 @@
+<% provide(:title, @opportunity.name) %>
+<div class="row">
+	<div class="col-md-12 content">
+		
+			<% flash.each do |key, value| %>
+	      <div class="alert alert-<%= key %> top-m-20"><%= value %></div>
+	    <% end %>
+
+	    <div class="row">
+	    	<div class="col-md-9">
+	    		<h1 class="lighter"><%= image_tag(@opportunity.logo, :class => "company-logo") %> - <%= @opportunity.name %></h1>
+	    	</div>
+	    	<div class="col-md-3"><%= rating(@opportunity.rating) %></div>
+	    </div>
+
+		<table class="table table-bordered table-thick-border bottom-m-0 top-m-20 lighter">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Duration</th>
+					<th>Post Graduation</th>
+					<th>More Info</th>
+				</tr>
+			</thead>
+			<tr>
+				<td><%= @opportunity.program_type %></td>
+				<td><%= @opportunity.duration %></td>
+				<td><%= @opportunity.post_graduation %></td>
+				<td><%= link_to(@opportunity.website, @opportunity.website) %></td>
+			</tr>
+		</table>
+
+		<h3 class="top-m-40">General Information</h3>
+
+		<p class="font-17"><%= @opportunity.general_information %></p>
+
+		<h3 class="top-m-40">Requirements</h3>
+
+		<table class="table table-bordered top-m-20 font-20">
+			<tr>
+				<td>Education</td>
+				<td>Allgemeine oder fachgebundene Hochschulreife (Fachhochschulreife reicht
+				nicht aus). Kein N.C.</td>
+			</tr>
+			<tr>
+				<td>Spoken Languages</td>
+				<td>fließende Deutsch- und Englischkenntnisse</td>
+			</tr>
+		</table>
+
+		<h3 class="top-m-40">Medical requirements</h3>
+
+		<table class="table table-bordered top-m-20 font-20">
+			<tr>
+				<td>Height</td>
+				<td>Körpergröße zwischen 1,65 und 1,98 m</td>
+			</tr>
+			<tr>
+				<td>Eyesight</td>
+				<td>Gutes Sehvermögen, d.h. Grenzwert für Refraktionsfehler +/- 3,0 Dioptrien,
+				für Astigmatismus 2 Dioptrien. Bei einem Refraktionswert über +/- 3,0 bis
+				max. +/- 5,0 Dioptrien bzw. Astigmatismus > 2 Dioptrien erfolgt eine
+				Einzelfallprüfung durch den LH Medizinischen Dienst bzw. das Luftfahrtbundesamt.</td>
+			</tr>
+		</table>
+
+		<h3 class="top-m-40">Additional Information regarding school finishes</h3>
+
+		<p class="font-17">Bewerber auf dem Weg zum deutschem Abitur müssen bei 13 Schuljahren das Zeugnis 12/2.Hj. bzw. beim G8 mit 12 Schuljahren entsprechend das Zeugnis 11/2.Hj. als PDF in der Bewerbung mitschicken.</p>
+
+		<p class="font-17">Bewerber mit Fachhochschulreife, die ein Studium abgeschlossen haben, müssen der Bewerbung eine Kopie des Diplom-/ Magister- bzw. Bachelorzeugnisses und eine Erklärung Ihres FH bzw. Universitäts-Prüfungsamtes beifügen. Die Erklärung muss bestätigen, dass Sie gemäß dem jeweiligen Landeshochschulgesetz mit dem Abschluss einen allgemeinen bzw. fachgebundenen Hochschulzugang erworben haben.</p>
+
+		<p class="font-17">Bewerber mit Fachhochschulreife, die im Studium das Vordiplom bzw. mind. ca. 60 bis 90 Credit-Points erworben haben , müssen der Bewerbung eine Kopie des Vordiploms bzw. eine Leistungsübersicht der erworbenen Credits und eine Erklärung Ihres FH bzw. Universitäts-Prüfungsamtes beifügen. Die Erklärung muss bestätigen, dass Sie gemäß dem jeweiligen Landeshochschulgesetz mit dem Vordiplom bzw. den bisher erworbenen Credits einen allgemeinen bzw. fachgebundenen Hochschulzugang erworben haben.</p>
+
+	</div>
+</div>	

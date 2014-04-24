@@ -8,8 +8,8 @@ describe "Static pages" do
     before { visit root_path }
 
     it { should have_content('Allowing aspiring pilots to make informed decisions') }
-    #it { should have_title(full_title('')) }
-    #it { should_not have_title('| Home') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
   end
 
 end
