@@ -13,7 +13,7 @@ $grayMediumLight: #eaeaea;
 /** Universal **/
 body {
 	padding-top: 7px;
-	background: asset-url("grey_wash_wall.png", image);
+	background: image-url("grey_wash_wall.png");
 }
 
 .top-m-3 {
