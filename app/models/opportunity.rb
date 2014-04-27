@@ -1,4 +1,8 @@
 class Opportunity < ActiveRecord::Base
+	serialize :requirements
+	serialize :medical_requirements
+	serialize :additional
+
 	validates :name, presence: true, length: { maximum: 30 }, uniqueness:true
 	validates :company, presence: true
 	VALID_LOGO_REGEX = /(\w+|\d+)\.png/
