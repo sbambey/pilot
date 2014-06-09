@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425030402) do
+ActiveRecord::Schema.define(version: 20140608004646) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "airlines", force: true do |t|
+    t.integer  "opportunity_id"
+    t.string   "airline_name"
+    t.string   "logo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "airports", force: true do |t|
     t.string   "name"
@@ -25,21 +33,40 @@ ActiveRecord::Schema.define(version: 20140425030402) do
     t.datetime "updated_at"
   end
 
+  create_table "headings", force: true do |t|
+    t.string   "title"
+    t.integer  "opportunity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "opportunities", force: true do |t|
-    t.string   "name"
-    t.string   "company"
-    t.string   "logo"
+    t.integer  "airline_id"
+    t.integer  "heading_id"
+    t.string   "opportunity_name"
     t.string   "program_type"
     t.text     "duration"
     t.text     "post_graduation"
     t.string   "website"
+    t.text     "hiring_status"
     t.decimal  "rating"
+    t.text     "general_information"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "general_information"
-    t.text     "requirements"
-    t.text     "medical_requirements"
-    t.text     "additional"
+  end
+
+  create_table "paragraphs", force: true do |t|
+    t.string   "content"
+    t.integer  "subheading_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subheadings", force: true do |t|
+    t.string   "title"
+    t.integer  "heading_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

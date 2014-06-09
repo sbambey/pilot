@@ -1,0 +1,22 @@
+<% provide(:title, "Add opportunity") %>
+<% errors = @opportunity.errors %>
+<div class="row">
+	<div class="col-md-10 col-md-offset-1 content">
+		<h1>Add an opportunity</h1>
+		<%= form_for(@opportunity, :html => {:role => 'form'}) do |f| %>
+
+			<%= render partial: "shared/error_messages", locals: {efor: @opportunity} %>
+
+			<div class="row">
+				<div class="col-md-6">
+					<%= f.fields_for :headings do |builder| %>
+						<%= render 'heading_fields', f: builder %>
+					<% end %>
+				</div>
+			</div>
+
+			<%= f.submit nil, class: "btn btn-default" %>
+					
+		<% end %>
+	</div>
+</div>

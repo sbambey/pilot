@@ -1,0 +1,11 @@
+<% if(!show.nil? && !show.empty?) %>
+	<h3 class="top-m-40"><%= title %></h3>
+	<table class="table table-bordered top-m-20 font-20" id="<%= id %>">
+		<% show.each do |item| %>
+			<tr>
+				<td><%= item['title'] %></td>
+				<td><%= item['content'] %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>

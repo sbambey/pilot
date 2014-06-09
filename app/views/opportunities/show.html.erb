@@ -1,18 +1,19 @@
-<% provide(:title, @opportunity.name) %>
+<% provide(:title, @opportunity.opportunity_name) %>
 <div class="row">
 	<div class="col-md-12 content">
 		
-			<% flash.each do |key, value| %>
-	      <div class="alert alert-<%= key %> top-m-20"><%= value %></div>
-	    <% end %>
+		<% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> top-m-20"><%= value %></div>
+    <% end %>
 
-	    <div class="row">
-	    	<div class="col-md-9">
-	    		<h1 class="lighter"><%= image_tag(@opportunity.logo, :class => "company-logo") %> - <%= @opportunity.name %></h1>
-	    	</div>
-	    	<div class="col-md-3"><%= rating(@opportunity.rating) %></div>
-	    </div>
+    <div class="row">
+    	<div class="col-md-9">
+    		<h1 class="lighter"><%= image_tag(@opportunity.airline.logo, :class => "company-logo") %> - <%= @opportunity.opportunity_name %></h1>
+    	</div>
+    	<div class="col-md-3"><%= rating(@opportunity.rating) %></div>
+    </div>
 
+    <% if @opportunity.hiring_status.nil? %>
 		<table class="table table-bordered table-thick-border bottom-m-0 top-m-20 lighter">
 			<thead>
 				<tr>
@@ -29,44 +30,43 @@
 				<td><%= link_to(@opportunity.website, @opportunity.website) %></td>
 			</tr>
 		</table>
+		<% else %>
+		<table class="table table-bordered table-thick-border bottom-m-0 top-m-20 lighter">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Hiring Status</th>
+					<th>More Info</th>
+				</tr>
+			</thead>
+			<tr>
+				<td><%= @opportunity.program_type %></td>
+				<td><%= @opportunity.hiring_status %></td>
+				<td><%= link_to(@opportunity.website, @opportunity.website) %></td>
+			</tr>
+		</table>
+		<% end %>
 
 		<h3 class="top-m-40">General Information</h3>
 
 		<p class="font-17"><%= @opportunity.general_information %></p>
 
-		<% if(!@opportunity.requirements.nil? && !@opportunity.requirements.empty?) %>
-			<h3 class="top-m-40">Requirements</h3>
-			<table class="table table-bordered top-m-20 font-20" id="requirements">
-				<% @opportunity.requirements.each do |key, value| %>
-					<tr>
-						<td><%= key %></td>
-						<td><%= value %></td>
-					</tr>
-				<% end %>
-			</table>
-		<% end %>
+		<%= render partial: "shared/additional", 
+		locals: { show: @opportunity.requirements, title: "Requirements", id: "requirements" } %>
 
-		<% if(!@opportunity.medical_requirements.nil? && !@opportunity.medical_requirements.empty?) %>
-		<h3 class="top-m-40">Medical requirements</h3>
-			<table class="table table-bordered top-m-20 font-20" id="medical_requirements">
-				<% @opportunity.medical_requirements.each do |key, value| %>
-					<tr>
-						<td><%= key %></td>
-						<td><%= value %></td>
-					</tr>
-				<% end %>
-			</table>
-		<% end %>
+		<%= render partial: "shared/additional", 
+		locals: { show: @opportunity.medical_requirements, title: "Medical Requirements", id: "medical_requirements" } %>
 
 		<% if(!@opportunity.additional.nil? && !@opportunity.additional.empty?) %>
-			<% @opportunity.additional.each_with_index do |(key, value),index| %>
+			<% @opportunity.additional.each_with_index do |item,index| %>
 				<section id="additional_<%= index %>">
-					<h3 class="top-m-40"><%= key %></h3>
-					<% value.each do |x| %>
+					<h3 class="top-m-40"><%= item["heading"] %></h3>
+					<% item["paragraph"].each do |x| %>
 						<p class="font-17"><%= x %></p>
 					<% end %>
 				</section>
 			<% end %>
 		<% end %>
+		
 	</div>
 </div>	

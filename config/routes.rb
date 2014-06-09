@@ -1,4 +1,5 @@
 PilotApp::Application.routes.draw do
+  get "airlines/new"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :airports

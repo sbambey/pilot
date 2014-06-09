@@ -1,0 +1,17 @@
+<%= content_tag :div, :class => ['form-group', type, ('has-error has-feedback' if errors.full_messages_for(type).any?)] do %>
+  <%= f.label type %> <a href="#" id="add-form-<%= type %>">[+] Add</a>
+  <% if type == :password || type == :password_confirmation %>
+  	<%= f.password_field type, :class => 'form-control' %>
+    <%= content_tag :span, nil, :class => ('glyphicon glyphicon-remove form-control-feedback' if errors.full_messages_for(type).any?) %>
+    <%= content_tag :span, errors.full_messages_for(type).join(", "), :class => 'help-block' %>
+  <% else %>
+  	<div class="bond">
+	  	<a href="#" class="remove-bond">[x] Remove section</a> 
+	  	<%= f.text_field type, class: 'form-control', id: "#{@model_name}_#{type}_title", name: "#{@model_name}[#{type}][][title]" %>
+		  <%= content_tag :span, nil, :class => 'help-block' %>
+	  	<%= f.text_area type, :class => 'form-control', name: "#{@model_name}[#{type}][][content]" %>
+      <%= content_tag :span, nil, :class => ('glyphicon glyphicon-remove form-control-feedback' if errors.full_messages_for(type).any?) %>
+    <%= content_tag :span, errors.full_messages_for(type).join(", "), :class => 'help-block' %>
+	  </div>
+  <% end %>
+<% end %>

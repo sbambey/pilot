@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="form-group">
+			<%= f.label :title, "Heading" %>
+			<div class="row">
+				<div class="col-md-9">
+					<%= f.text_field :title, class: "form-control" %>
+				</div>
+				<div class="col-md-3">
+					<%= f.hidden_field :_destroy %>
+					<%= link_to "Remove Heading", '#', class: "remove_fields" %>
+				</div>
+			</div>
+		</div>
+		<%= link_to_add_fields "Add Subheading", f, :subheadings %>
+	</div>
+</div>
