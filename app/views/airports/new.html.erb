@@ -6,14 +6,10 @@
 		<%= form_for(@airport, :html => {:role => 'form'}) do |f| %>
 
 			<%= render partial: "shared/error_messages", locals: {efor: @airport} %>
-
-			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :name } %>
-
-			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :city } %>
-
-			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :state } %>
-
-			<%= render partial: "shared/form_input", locals: { f: f, errors: errors, type: :website } %>
+			<%= render partial: "shared/form_input_field", locals: { f: f, errors: errors, type: :name } %>
+			<%= render partial: "shared/form_input_field", locals: { f: f, errors: errors, type: :city } %>
+			<%= render partial: "shared/form_input_field", locals: { f: f, errors: errors, type: :state } %>
+			<%= render partial: "shared/form_input_field", locals: { f: f, errors: errors, type: :website } %>
 
 		  <%= f.submit "Add airport", :class => "btn btn-primary btn-lg" %>
 		<% end %>
