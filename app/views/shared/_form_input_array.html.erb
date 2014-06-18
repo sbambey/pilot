@@ -1,0 +1,8 @@
+<% size.times do |i| %>
+	<%= content_tag :div, :class => ['form-group', ('has-error has-feedback' if errors.full_messages_for(type).any?)] do %>
+	  <%= f.label labels[i] %>
+	  <%= f.text_field type, :class => 'form-control', name: "#{@model_name}[#{type.to_s}][]", value: "" %>
+	  <%= content_tag :span, nil, :class => ('glyphicon glyphicon-remove form-control-feedback' if errors.full_messages_for(type).any?) %>
+	  <%= content_tag :span, errors.full_messages_for(type).join(", "), :class => 'help-block' %>
+	<% end %>
+<% end %>

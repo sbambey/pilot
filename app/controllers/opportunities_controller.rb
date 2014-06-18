@@ -3,6 +3,7 @@ class OpportunitiesController < ApplicationController
   def new
   	@opportunity = Opportunity.new
     @model_name = controller_name.classify[0,1].downcase + controller_name.classify[1..-1]
+    @opportunity.headings.build
   end
 
   def show
@@ -29,8 +30,8 @@ class OpportunitiesController < ApplicationController
   private
 
   	def opportunities_params
-  		params.require(:opportunity).tap do |whitelisted|
-        whitelisted[:bla] = params[:opportunities][:bla]
+  		params.require(:opportunity).permit(:airline, :opportunity_name, {:website => []}, :rating).tap do |whitelisted|
+        whitelisted[:headings_attributes] = params[:opportunity][:headings_attributes]
       end
   	end
 end

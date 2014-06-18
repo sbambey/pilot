@@ -13,8 +13,10 @@
 					<%= render "shared/form_input_field", f: f, errors: @opportunity.errors, type: :post_graduation %>
 				</div>
 				<div class="col-md-6">
-					<%= render "shared/form_input_field", f: f, errors: @opportunity.errors, type: :website %>
-					<%= render "shared/form_input_field", f: f, errors: @opportunity.errors, type: :website %>
+
+					<%= render "shared/form_input_array", f: f, errors: @opportunity.errors, type: :website, size: 2, 
+					labels: ["Website to show user", "Full website for internal purposes"] %>
+
 					<%= render "shared/form_input_field", f: f, errors: @opportunity.errors, type: :hiring_status %>
 					<%= render "shared/form_input_field", f: f, errors: @opportunity.errors, type: :rating %>
 				</div>
@@ -22,8 +24,10 @@
 
 			<%= add_fields f, :headings %>
 
-			<%= link_to_add_fields "Add Heading", f, :headings %><br /><br />
-
+			<div class="add-buttons">
+				<%= link_to_add_fields "Add Paragraph", f, :headings %>
+				<%= link_to_add_table_fields "Add Table", f, :headings %><br /><br />
+			</div>
 			<%= f.submit class: "btn btn-primary btn-lg" %>
 					
 		<% end %>

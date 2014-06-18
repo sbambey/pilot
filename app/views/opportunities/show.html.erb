@@ -47,26 +47,28 @@
 		</table>
 		<% end %>
 
-		<h3 class="top-m-40">General Information</h3>
-
-		<p class="font-17"><%= @opportunity.general_information %></p>
-
-		<%= render partial: "shared/additional", 
-		locals: { show: @opportunity.requirements, title: "Requirements", id: "requirements" } %>
-
-		<%= render partial: "shared/additional", 
-		locals: { show: @opportunity.medical_requirements, title: "Medical Requirements", id: "medical_requirements" } %>
-
-		<% if(!@opportunity.additional.nil? && !@opportunity.additional.empty?) %>
-			<% @opportunity.additional.each_with_index do |item,index| %>
-				<section id="additional_<%= index %>">
-					<h3 class="top-m-40"><%= item["heading"] %></h3>
-					<% item["paragraph"].each do |x| %>
-						<p class="font-17"><%= x %></p>
+		<% @opportunity.headings.each do |heading| %>
+			<h1><%= heading.title %></h1>
+			<% if heading.is_table %>
+				<table class="table table-bordered">
+					<% heading.subheadings.each do |subheading| %>
+						<tr>
+							<td><%= subheading.title %></td>
+							<td><%= subheading.paragraphs.first.content %></td>
+						</tr>
 					<% end %>
-				</section>
+				</table>
+			<% else %>
+				<% heading.subheadings.each do |subheading| %>
+					<h2><%= subheading.title %></h2>
+					<% subheading.paragraphs.each do |paragraph| %>
+						<p><%= paragraph.content %></p>
+					<% end %>
+				<% end %>
 			<% end %>
 		<% end %>
+
+		<p class="font-17"></p>
 		
 	</div>
 </div>	

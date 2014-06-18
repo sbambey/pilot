@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20140608004646) do
   enable_extension "plpgsql"
 
   create_table "airlines", force: true do |t|
-    t.integer  "opportunity_id"
     t.string   "airline_name"
     t.string   "logo"
     t.datetime "created_at"
@@ -34,15 +33,15 @@ ActiveRecord::Schema.define(version: 20140608004646) do
   end
 
   create_table "headings", force: true do |t|
-    t.string   "title"
     t.integer  "opportunity_id"
+    t.text     "title"
+    t.boolean  "is_table"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "opportunities", force: true do |t|
     t.integer  "airline_id"
-    t.integer  "heading_id"
     t.string   "opportunity_name"
     t.string   "program_type"
     t.text     "duration"
@@ -50,21 +49,20 @@ ActiveRecord::Schema.define(version: 20140608004646) do
     t.string   "website"
     t.text     "hiring_status"
     t.decimal  "rating"
-    t.text     "general_information"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "paragraphs", force: true do |t|
-    t.string   "content"
     t.integer  "subheading_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "subheadings", force: true do |t|
-    t.string   "title"
     t.integer  "heading_id"
+    t.text     "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,6 +3,8 @@ class Opportunity < ActiveRecord::Base
 	belongs_to :airline
 	accepts_nested_attributes_for :headings, allow_destroy: true
 
+	serialize :website, Array
+
 	#validates :opportunity_name, presence: true, length: { maximum: 30 }, uniqueness:true
 	#validates :program_type, presence: true, length:{maximum:50}
 	#validates :duration, presence:true, length:{maximum:50}

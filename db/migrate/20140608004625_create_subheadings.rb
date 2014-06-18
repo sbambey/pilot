@@ -1,8 +1,9 @@
 class CreateSubheadings < ActiveRecord::Migration
   def change
     create_table :subheadings do |t|
-      t.string :title
-      t.integer :heading_id
+    	#t.belongs_to :appendable, polymorphic: true
+    	t.belongs_to :heading
+      t.text :title
 
       t.timestamps
     end
