@@ -13,7 +13,7 @@
     	<div class="col-md-3"><%= rating(@opportunity.rating) %></div>
     </div>
 
-    <% if @opportunity.hiring_status.nil? %>
+    <% if @opportunity.hiring_status.blank? %>
 		<table class="table table-bordered table-thick-border bottom-m-0 top-m-20 lighter">
 			<thead>
 				<tr>
@@ -27,7 +27,7 @@
 				<td><%= @opportunity.program_type %></td>
 				<td><%= @opportunity.duration %></td>
 				<td><%= @opportunity.post_graduation %></td>
-				<td><%= link_to(@opportunity.website, @opportunity.website) %></td>
+				<td><%= link_to(@opportunity.website[0], @opportunity.website[0]) %></td>
 			</tr>
 		</table>
 		<% else %>
@@ -42,15 +42,15 @@
 			<tr>
 				<td><%= @opportunity.program_type %></td>
 				<td><%= @opportunity.hiring_status %></td>
-				<td><%= link_to(@opportunity.website, @opportunity.website) %></td>
+				<td><%= link_to(@opportunity.website[0], @opportunity.website[0]) %></td>
 			</tr>
 		</table>
 		<% end %>
 
 		<% @opportunity.headings.each do |heading| %>
-			<h1><%= heading.title %></h1>
+			<h2><%= heading.title %></h2>
 			<% if heading.is_table %>
-				<table class="table table-bordered">
+				<table class="table table-bordered top-m-20 lighter">
 					<% heading.subheadings.each do |subheading| %>
 						<tr>
 							<td><%= subheading.title %></td>
@@ -60,9 +60,11 @@
 				</table>
 			<% else %>
 				<% heading.subheadings.each do |subheading| %>
-					<h2><%= subheading.title %></h2>
+					<% if !subheading.title.blank? %>
+						<h2><%= subheading.title %></h2>
+					<% end %>
 					<% subheading.paragraphs.each do |paragraph| %>
-						<p><%= paragraph.content %></p>
+						<p class="font-17"><%= paragraph.content %></p>
 					<% end %>
 				<% end %>
 			<% end %>
