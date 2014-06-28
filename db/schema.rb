@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140608004646) do
+ActiveRecord::Schema.define(version: 20140628033011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "airlines", force: true do |t|
-    t.string   "airline_name"
+    t.string   "name"
     t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -32,8 +32,21 @@ ActiveRecord::Schema.define(version: 20140608004646) do
     t.datetime "updated_at"
   end
 
+  create_table "flies", force: true do |t|
+    t.integer  "airline_id"
+    t.string   "name"
+    t.string   "program_type"
+    t.text     "duration"
+    t.text     "post_graduation"
+    t.string   "website"
+    t.text     "hiring_status"
+    t.decimal  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "headings", force: true do |t|
-    t.integer  "opportunity_id"
+    t.integer  "fly_id"
     t.text     "title"
     t.boolean  "is_table"
     t.datetime "created_at"
@@ -74,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140608004646) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

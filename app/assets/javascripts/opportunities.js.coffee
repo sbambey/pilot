@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
 	$('form').on 'click', '.remove_fields', (event) ->
-		$(this).parent().parent().find('input[type=hidden]').each ->
+		$(this).parent().find('input[type=hidden]').each ->
 			$(this).val('1')
 		$(this).closest('.panel').hide()
 		event.preventDefault()

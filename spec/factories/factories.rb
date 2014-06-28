@@ -14,12 +14,12 @@ FactoryGirl.define do
   end
 
   factory :airline do
-    airline_name  "Foo Airline"
+    name          "Foo Airline"
     logo          "bar-logo.png"
   end
 
   factory :opportunity do
-    opportunity_name  "Foo Opportunity"
+    fly               "Foo Fly"
     association       :airline
   end
 end
