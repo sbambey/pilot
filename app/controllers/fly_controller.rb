@@ -31,6 +31,7 @@ class FlyController < ApplicationController
 
   def edit
     @fly = Fly.friendly.find(params[:id])
+    @model_name = controller_name.classify[0,1].downcase + controller_name.classify[1..-1]
   end
 
   def update
