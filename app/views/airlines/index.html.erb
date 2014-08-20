@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-md-12 content">
+
+		<h1 class="lighter"></h1>
+
+		<table class="table table-bordered table-thick-border bottom-m-0 top-m-20 lighter">
+			<thead>
+				<tr>
+					<th>Fly name</th>
+				</tr>
+			</thead>
+			<% @airlines.each do |airline| %>
+				<tr>
+					<td><%= link_to airline.name, airline %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

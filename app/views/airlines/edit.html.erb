@@ -1,8 +1,8 @@
-<% provide(:title, "New Airline") %>
+<% provide(:title, "Edit Airline") %>
 <% errors = @airline.errors %>
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 content">
-		<h1>New Airline</h1>
+		<h1>Edit Airline</h1>
 		<%= form_for(@airline, :html => {:role => 'form'}) do |f| %>
 
 			<%= render partial: "shared/error_messages", locals: {efor: @airline} %>

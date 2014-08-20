@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<div class="form-group">
+			<%= f.hidden_field :is_table, value: false %>
+			<%= f.label :title, "Paragraph Heading" %>
+			<div class="row">
+				<div class="col-md-9">
+					<%= f.text_field :title, class: "form-control" %>
+				</div>
+				<div class="col-md-3">
+					<%= f.hidden_field :_destroy %>
+					<%= link_to "Remove Heading", '#', class: "remove_fields" %>
+				</div>
+			</div>
+		</div>
+		<%= f.fields_for :subheadings do |builder| %>
+			<%= render 'subheading_fields', f: builder %>
+		<% end %>
+		<%= link_to_add_fields "Add Subheading", f, :subheadings %>
+	</div>
+</div>

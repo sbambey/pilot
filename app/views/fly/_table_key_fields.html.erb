@@ -1,0 +1,27 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+
+		<div class="form-group">
+			<%= f.label :title, "Table Row" %>
+			<div class="row">
+				<div class="col-md-3">
+					<%= f.text_field :title, class: "form-control" %>
+				</div>
+				<div class="col-md-6">
+					<% if current_page?(:action => 'new') %>
+						<%= add_table_value_fields(f) %>
+					<% else %>
+						<%= f.fields_for :paragraphs do |builder| %>
+							<%= render 'table_value_fields', f: builder %>
+						<% end %>
+					<% end %>
+				</div>
+
+				<div class="col-md-3">
+					<%= f.hidden_field :_destroy %>
+					<%= link_to "Remove Table Row", '#', class: "remove_fields" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -5,4 +5,5 @@ class Heading < ActiveRecord::Base
 	has_many :subheadings
 	accepts_nested_attributes_for :subheadings, allow_destroy: true
 	#accepts_nested_attributes_for :paragraphs, allow_destroy: true
+	#extend FriendlyId
 end

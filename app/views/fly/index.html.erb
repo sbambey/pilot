@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-md-12 content">
+
+		<h1 class="lighter"><%= @flies.first.airline.name %></h1>
+
+		<table class="table table-bordered table-thick-border bottom-m-0 top-m-20 lighter">
+			<thead>
+				<tr>
+					<th>Fly name</th>
+				</tr>
+			</thead>
+			<% @flies.each do |fly| %>
+				<tr>
+					<td><%= link_to fly.name, airline_fly_path(id: fly, airline_id: fly.airline) %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>

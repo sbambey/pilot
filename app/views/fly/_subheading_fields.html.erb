@@ -1,0 +1,20 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<div class="form-group">
+			<%= f.label :title, "Subheading" %>
+			<div class="row">
+				<div class="col-md-9">
+					<%= f.text_field :title, class: "form-control" %>
+				</div>
+				<div class="col-md-3">
+					<%= f.hidden_field :_destroy %>
+					<%= link_to "Remove Subheading", '#', class: "remove_fields" %>
+				</div>
+			</div>
+		</div>
+		<%= f.fields_for :paragraphs do |builder| %>
+			<%= render 'paragraph_fields', f: builder %>
+		<% end %>
+		<%= link_to_add_fields "Add Paragraph", f, :paragraphs %>
+	</div>
+</div>
