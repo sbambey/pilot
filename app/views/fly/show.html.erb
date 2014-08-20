@@ -61,7 +61,7 @@
 			<% else %>
 				<% heading.subheadings.each do |subheading| %>
 					<% if !subheading.title.blank? %>
-						<h2><%= subheading.title %></h2>
+						<h4><%= subheading.title %></h4>
 					<% end %>
 					<% subheading.paragraphs.each do |paragraph| %>
 						<p class="font-17"><%= paragraph.content %></p>
