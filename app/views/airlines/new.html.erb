@@ -3,14 +3,33 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1 content">
 		<h1>New Airline</h1>
-		<%= form_for(@airline, :html => {:role => 'form'}) do |f| %>
+
+		
+			<%= s3_uploader_form callback_url: airlines_path, callback_param: "airline[logo]", id: "s3-uploader" do %>
+			  <%= file_field_tag :file, multiple: true %>
+			<% end %>
+
+			<div class="upload js-progress-bars">
+			  <div class="progress">
+			    <div class="bars"> </div>
+			  </div>
+			</div>
+		
+		<%= form_for(@airline, :html => {:role => 'form', :class => "directUpload"}) do |f| %>
 
 			<%= render partial: "shared/error_messages", locals: {efor: @airline} %>
 
 			<div class="row">
 				<div class="col-md-6">
 					<%= render "shared/form_input_field", f: f, errors: @airline.errors, type: :name %>
-					<%= render "shared/form_input_field", f: f, errors: @airline.errors, type: :logo %>
+
+					<%= content_tag :div, class: ['form-group', ('has-error has-feedback' if errors.full_messages_for(:logo).any?)] do %>
+					  <%= f.label :logo %>
+					  <%= f.file_field :logo %>
+					  <%= content_tag :span, nil, class: ('glyphicon glyphicon-remove form-control-feedback' if errors.full_messages_for(:logo).any?) %>
+					  <%= content_tag :span, errors.full_messages_for(:logo).join(", "), class: 'help-block' %>
+					<% end %>
+
 				</div>
 			</div>
 			

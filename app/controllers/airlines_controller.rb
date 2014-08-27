@@ -1,4 +1,7 @@
 class AirlinesController < ApplicationController
+
+  #skip_before_filter :verify_authenticity_token, :only => [:new, :create]
+
   def new
   	@airline = Airline.new
   end
