@@ -19,6 +19,7 @@ class AirlinesController < ApplicationController
   def edit
     @airline = Airline.friendly.find(params[:id])
   end
+  
   def update
     @airline = Airline.friendly.find(params[:id])
     params = airline_params
