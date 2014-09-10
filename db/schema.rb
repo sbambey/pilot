@@ -11,17 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629225857) do
+ActiveRecord::Schema.define(version: 20140910054844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "airlines", force: true do |t|
     t.string   "name"
-    t.string   "logo"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "airlines", ["slug"], name: "index_airlines_on_slug", using: :btree

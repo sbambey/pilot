@@ -32,7 +32,8 @@ gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 gem 'friendly_id'
 gem 'dotenv-rails', groups: [:development, :test]
-gem 's3_direct_upload'
+gem 'aws-sdk'
+gem 'paperclip'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
