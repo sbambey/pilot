@@ -32,7 +32,7 @@ class AirlinesController < ApplicationController
   end
 
   def index
-    @airlines = Airline.all
+    @airlines = Airline.order('name ASC').all
   end
 
   def show

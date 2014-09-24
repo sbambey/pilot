@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910054844) do
+ActiveRecord::Schema.define(version: 20140923013603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140910054844) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "slug"
+    t.string   "location"
+    t.datetime "posting_date"
+    t.string   "expiration_date"
   end
 
   add_index "flies", ["slug"], name: "index_flies_on_slug", using: :btree

@@ -3,10 +3,9 @@
 	<div class="col-md-10 col-md-offset-1 content">
 		<h1>Add an opportunity</h1>
 
-		<%= form_for(@fly, url: airline_fly_index_path, html: {:role => 'form'}) do |f| %>
+		<%= form_for([@airline, @fly], url: airline_fly_index_path, html: {:role => 'form'}) do |f| %>
 			<div class="row">
 				<div class="col-md-6">
-					<%= render "shared/form_input_field", f: f, errors: @fly.errors, type: :airline %>
 					<%= render "shared/form_input_field", f: f, errors: @fly.errors, type: :name %>
 					<%= render "shared/form_input_field", f: f, errors: @fly.errors, type: :program_type %>
 					<%= render "shared/form_input_field", f: f, errors: @fly.errors, type: :duration %>

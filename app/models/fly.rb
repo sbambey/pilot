@@ -1,6 +1,6 @@
 class Fly < ActiveRecord::Base
 	extend FriendlyId
-	friendly_id :name, use: [:slugged, :history]
+	friendly_id :slug_candidates, use: [:slugged, :history]
 	
 	belongs_to :airline
 	has_many :headings
@@ -15,5 +15,12 @@ class Fly < ActiveRecord::Base
     return true if respond_to?(change) && send(change)
 
     false
+  end
+
+  def slug_candidates
+    [
+      :name,
+      [:name, :program_type],
+    ]
   end
 end
